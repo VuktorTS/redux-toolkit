@@ -2,6 +2,7 @@
   "name": "goit-react-textbook-lesson-13-redux-toolkit-app-starter-code",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://VuktorTS.github.io/redux-toolkit/",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
