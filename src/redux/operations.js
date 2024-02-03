@@ -14,3 +14,38 @@ export const fetchTasks = createAsyncThunk(
     }
   }
 );
+export const addTask = createAsyncThunk(
+  "tasks/addTask",
+  async (text, thunkAPI) => {
+    try {
+      const response = await axios.post("/tasks", { text });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const deleteTask = createAsyncThunk(
+  "tasks/deleteTask",
+  async (taskId, thunkAPI) => {
+    try {
+      const response = await axios.delete(`/tasks/${taskId}`);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const toggleCompleted = createAsyncThunk(
+  "task/toggleCompleted",
+  async (task, thunkAPI) => {
+    try {
+      const response = await axios.put(`/tasks/${task.id}`, {
+        completed: !task.completed,
+      });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
